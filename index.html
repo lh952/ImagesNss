@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Library | Free Download</title>
+  <meta name="description" content="A public image library where everyone can view and download images for free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">IL</div>
+      <div>
+        <h1>Image Library</h1>
+        <p>Free Images • Free Download</p>
+      </div>
+    </div>
+    <button id="uploadBtn" class="btn btn-primary">＋ Upload Image</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="eyebrow">PUBLIC IMAGE LIBRARY</span>
+        <h2>अपनी जरूरत की image खोजें,<br><span>देखें और free download करें।</span></h2>
+        <p>Images को उनके प्रकार के अनुसार व्यवस्थित किया गया है। किसी account की आवश्यकता नहीं—सिर्फ browse, preview और download करें।</p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-icon">↧</div>
+        <strong>Free Download</strong>
+        <span>कोई download charge नहीं</span>
+      </div>
+    </section>
+
+    <section class="controls">
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="searchInput" type="search" placeholder="Image, category या keyword खोजें...">
+      </div>
+      <div id="categoryFilters" class="filters"></div>
+    </section>
+
+    <section id="library">
+      <div class="section-heading">
+        <div>
+          <h3>Image Collection</h3>
+          <p id="resultCount">Images loading...</p>
+        </div>
+      </div>
+      <div id="gallery" class="gallery"></div>
+      <div id="emptyState" class="empty hidden">
+        <div>🖼️</div>
+        <h3>कोई image नहीं मिली</h3>
+        <p>दूसरी category या search keyword आज़माएँ।</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="uploadModal" class="modal hidden">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <button class="close" data-close>×</button>
+      <div id="loginPanel">
+        <span class="modal-icon">🔐</span>
+        <h3>Upload Access</h3>
+        <p>Image upload करने के लिए password डालें।</p>
+        <form id="passwordForm">
+          <input id="passwordInput" type="password" inputmode="numeric" autocomplete="off" placeholder="Enter upload password" required>
+          <button class="btn btn-primary full" type="submit">Continue</button>
+          <p id="passwordError" class="error"></p>
+        </form>
+      </div>
+
+      <div id="uploadPanel" class="hidden">
+        <span class="modal-icon">⬆️</span>
+        <h3>Upload Image</h3>
+        <p>Image चुनें, category दें और public library में publish करें।</p>
+        <form id="uploadForm">
+          <label>Image
+            <input id="imageFile" type="file" accept="image/*" required>
+          </label>
+          <label>Title
+            <input id="imageTitle" type="text" maxlength="100" placeholder="जैसे NSS Logo" required>
+          </label>
+          <label>Category
+            <select id="imageCategory" required>
+              <option value="">Select category</option>
+              <option>Logos</option>
+              <option>Posters</option>
+              <option>Certificates</option>
+              <option>NSS</option>
+              <option>College</option>
+              <option>Events</option>
+              <option>Nature</option>
+              <option>Education</option>
+              <option>Others</option>
+            </select>
+          </label>
+          <label>Keywords <span class="muted">(optional)</span>
+            <input id="imageKeywords" type="text" maxlength="200" placeholder="nss, college, rajnandgaon">
+          </label>
+          <div id="uploadPreview" class="upload-preview hidden"></div>
+          <button id="publishBtn" class="btn btn-primary full" type="submit">Publish Image</button>
+          <p id="uploadStatus" class="status"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="previewModal" class="modal hidden">
+    <div class="modal-backdrop" data-close-preview></div>
+    <div class="preview-card">
+      <button class="close" data-close-preview>×</button>
+      <img id="previewImage" alt="">
+      <div class="preview-info">
+        <div>
+          <h3 id="previewTitle"></h3>
+          <p id="previewMeta"></p>
+        </div>
+        <a id="downloadBtn" class="btn btn-primary" href="#" download>↓ Free Download</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© <span id="year"></span> Image Library • Free access for everyone</p>
+  </footer>
+
+  <!-- Firebase is used for persistent public storage/database. -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
