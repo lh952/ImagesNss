@@ -14,14 +14,14 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_FIREBASE_API_KEY",
-  authDomain: "PASTE_YOUR_PROJECT.firebaseapp.com",
-  projectId: "PASTE_YOUR_PROJECT_ID",
-  storageBucket: "PASTE_YOUR_PROJECT.firebasestorage.app",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID",
-  appId: "PASTE_YOUR_APP_ID"
+  apiKey: "AIzaSyA7mPzZNeeoyEIDexN3Cq7ddkKKumEWPPk",
+  authDomain: "imagegnss.firebaseapp.com",
+  projectId: "imagegnss",
+  storageBucket: "imagegnss.firebasestorage.app",
+  messagingSenderId: "804797018278",
+  appId: "1:804797018278:web:7ce030b393eada4e120467",
+  measurementId: "G-8VL3SC7LRJ"
 };
-
 // Upload gate requested by the site owner.
 // Important: a password embedded in frontend JavaScript is NOT a secure server-side secret.
 // For a production site, use a server/Cloud Function to verify upload credentials.
